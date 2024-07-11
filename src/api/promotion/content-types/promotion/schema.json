@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "Promotion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "boxes": {
+      "displayName": "promotion",
+      "type": "component",
+      "repeatable": true,
+      "component": "promotion.promotion"
+    }
+  }
+}

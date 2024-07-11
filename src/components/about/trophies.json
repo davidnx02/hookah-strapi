@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_about_trophies",
+  "info": {
+    "displayName": "trophies"
+  },
+  "options": {},
+  "attributes": {
+    "competition": {
+      "type": "string"
+    },
+    "place": {
+      "type": "string"
+    }
+  }
+}

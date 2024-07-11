@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_small_menu_hookahs",
+  "info": {
+    "displayName": "Hookahs"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "descripiton": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
