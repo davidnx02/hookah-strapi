@@ -988,6 +988,72 @@ export interface ApiItemItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiLemonadeLemonade extends Schema.CollectionType {
+  collectionName: 'lemonades';
+  info: {
+    singularName: 'lemonade';
+    pluralName: 'lemonades';
+    displayName: 'Lemonade';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lemonade.lemonade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lemonade.lemonade',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMasterMaster extends Schema.CollectionType {
+  collectionName: 'masters';
+  info: {
+    singularName: 'master';
+    pluralName: 'masters';
+    displayName: 'Master';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::master.master',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::master.master',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNavigationNavigation extends Schema.SingleType {
   collectionName: 'navigations';
   info: {
@@ -1106,6 +1172,8 @@ declare module '@strapi/types' {
       'api::general.general': ApiGeneralGeneral;
       'api::hero.hero': ApiHeroHero;
       'api::item.item': ApiItemItem;
+      'api::lemonade.lemonade': ApiLemonadeLemonade;
+      'api::master.master': ApiMasterMaster;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::our-menu.our-menu': ApiOurMenuOurMenu;
       'api::promotion.promotion': ApiPromotionPromotion;
