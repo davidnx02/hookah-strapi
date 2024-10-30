@@ -25,6 +25,17 @@ export interface CateringService extends Schema.Component {
   };
 }
 
+export interface InstagramPost extends Schema.Component {
+  collectionName: 'components_instagram_posts';
+  info: {
+    displayName: 'post';
+  };
+  attributes: {
+    link: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface NavigationButton extends Schema.Component {
   collectionName: 'components_navigation_buttons';
   info: {
@@ -77,6 +88,7 @@ declare module '@strapi/types' {
     export interface Components {
       'about.trophies': AboutTrophies;
       'catering.service': CateringService;
+      'instagram.post': InstagramPost;
       'navigation.button': NavigationButton;
       'navigation.menu': NavigationMenu;
       'promotion.promotion': PromotionPromotion;

@@ -914,6 +914,9 @@ export interface ApiGeneralGeneral extends Schema.SingleType {
     postcode: Attribute.String;
     address: Attribute.String;
     logo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    instagram_link: Attribute.String;
+    linkedin_link: Attribute.String;
+    facebook_link: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -955,6 +958,37 @@ export interface ApiHeroHero extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInstagramInstagram extends Schema.SingleType {
+  collectionName: 'instagrams';
+  info: {
+    singularName: 'instagram';
+    pluralName: 'instagrams';
+    displayName: 'Instagram';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    post: Attribute.Component<'instagram.post', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::instagram.instagram',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::instagram.instagram',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1171,6 +1205,7 @@ declare module '@strapi/types' {
       'api::catering.catering': ApiCateringCatering;
       'api::general.general': ApiGeneralGeneral;
       'api::hero.hero': ApiHeroHero;
+      'api::instagram.instagram': ApiInstagramInstagram;
       'api::item.item': ApiItemItem;
       'api::lemonade.lemonade': ApiLemonadeLemonade;
       'api::master.master': ApiMasterMaster;
