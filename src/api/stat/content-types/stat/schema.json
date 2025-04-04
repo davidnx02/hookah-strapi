@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "stats",
+  "info": {
+    "singularName": "stat",
+    "pluralName": "stats",
+    "displayName": "Stat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stat": {
+      "displayName": "Stat",
+      "type": "component",
+      "repeatable": true,
+      "component": "stat.stat"
+    }
+  }
+}

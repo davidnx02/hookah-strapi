@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_hero_buttons",
+  "info": {
+    "displayName": "button",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "secondary",
+        "accent"
+      ]
+    }
+  }
+}

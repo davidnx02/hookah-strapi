@@ -788,47 +788,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiAboutAbout extends Schema.SingleType {
-  collectionName: 'abouts';
-  info: {
-    singularName: 'about';
-    pluralName: 'abouts';
-    displayName: 'About';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    subtitle: Attribute.String;
-    title: Attribute.String;
-    description: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'toolbar';
-        }
-      >;
-    trophies: Attribute.Component<'about.trophies', true>;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -863,32 +822,32 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
-export interface ApiCateringCatering extends Schema.SingleType {
-  collectionName: 'caterings';
+export interface ApiCtaBannerCtaBanner extends Schema.SingleType {
+  collectionName: 'cta_banners';
   info: {
-    singularName: 'catering';
-    pluralName: 'caterings';
-    displayName: 'Catering';
+    singularName: 'cta-banner';
+    pluralName: 'cta-banners';
+    displayName: 'CTA Banner';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    subtitle: Attribute.String;
-    title: Attribute.String;
-    services: Attribute.Component<'catering.service', true>;
-    gallery: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    title: Attribute.Text;
+    description: Attribute.Text;
+    button: Attribute.Component<'hero.button'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::catering.catering',
+      'api::cta-banner.cta-banner',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::catering.catering',
+      'api::cta-banner.cta-banner',
       'oneToOne',
       'admin::user'
     > &
@@ -941,23 +900,56 @@ export interface ApiHeroHero extends Schema.SingleType {
     singularName: 'hero';
     pluralName: 'heroes';
     displayName: 'Hero';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    subtitle: Attribute.String;
     title: Attribute.String;
-    description: Attribute.Text;
-    button_label: Attribute.String;
-    button_link: Attribute.String;
-    background: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    buttons: Attribute.Component<'hero.button', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInfoSectionInfoSection extends Schema.CollectionType {
+  collectionName: 'info_sections';
+  info: {
+    singularName: 'info-section';
+    pluralName: 'info-sections';
+    displayName: 'InfoSection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Blocks;
+    description: Attribute.Blocks;
+    button: Attribute.Component<'hero.button'>;
+    image1: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image2: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    page: Attribute.Enumeration<['home', 'menu', 'vodne-fajky', 'kontakt']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::info-section.info-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::info-section.info-section',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1119,65 +1111,24 @@ export interface ApiNavigationNavigation extends Schema.SingleType {
   };
 }
 
-export interface ApiOurMenuOurMenu extends Schema.SingleType {
-  collectionName: 'our_menus';
+export interface ApiStatStat extends Schema.SingleType {
+  collectionName: 'stats';
   info: {
-    singularName: 'our-menu';
-    pluralName: 'our-menus';
-    displayName: 'Our Menu';
+    singularName: 'stat';
+    pluralName: 'stats';
+    displayName: 'Stat';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    subtitle: Attribute.String;
-    title: Attribute.String;
-    hookahs: Attribute.Component<'small-menu.hookahs', true>;
+    stat: Attribute.Component<'stat.stat', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::our-menu.our-menu',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::stat.stat', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::our-menu.our-menu',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPromotionPromotion extends Schema.SingleType {
-  collectionName: 'promotions';
-  info: {
-    singularName: 'promotion';
-    pluralName: 'promotions';
-    displayName: 'Promotion';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    boxes: Attribute.Component<'promotion.promotion', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::promotion.promotion',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::promotion.promotion',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::stat.stat', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1200,18 +1151,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::about.about': ApiAboutAbout;
       'api::category.category': ApiCategoryCategory;
-      'api::catering.catering': ApiCateringCatering;
+      'api::cta-banner.cta-banner': ApiCtaBannerCtaBanner;
       'api::general.general': ApiGeneralGeneral;
       'api::hero.hero': ApiHeroHero;
+      'api::info-section.info-section': ApiInfoSectionInfoSection;
       'api::instagram.instagram': ApiInstagramInstagram;
       'api::item.item': ApiItemItem;
       'api::lemonade.lemonade': ApiLemonadeLemonade;
       'api::master.master': ApiMasterMaster;
       'api::navigation.navigation': ApiNavigationNavigation;
-      'api::our-menu.our-menu': ApiOurMenuOurMenu;
-      'api::promotion.promotion': ApiPromotionPromotion;
+      'api::stat.stat': ApiStatStat;
     }
   }
 }

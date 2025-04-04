@@ -1,27 +1,15 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface AboutTrophies extends Schema.Component {
-  collectionName: 'components_about_trophies';
+export interface HeroButton extends Schema.Component {
+  collectionName: 'components_hero_buttons';
   info: {
-    displayName: 'trophies';
-  };
-  attributes: {
-    competition: Attribute.String;
-    place: Attribute.String;
-  };
-}
-
-export interface CateringService extends Schema.Component {
-  collectionName: 'components_catering_services';
-  info: {
-    displayName: 'Service';
+    displayName: 'button';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
-    hookah_amount: Attribute.String;
-    duration: Attribute.String;
-    price: Attribute.Decimal;
-    description: Attribute.Text;
+    url: Attribute.String;
+    variant: Attribute.Enumeration<['default', 'secondary', 'accent']>;
   };
 }
 
@@ -55,22 +43,6 @@ export interface NavigationMenu extends Schema.Component {
   };
 }
 
-export interface PromotionPromotion extends Schema.Component {
-  collectionName: 'components_promotion_promotions';
-  info: {
-    displayName: 'promotion';
-    description: '';
-  };
-  attributes: {
-    subtitle: Attribute.String;
-    title: Attribute.String;
-    description: Attribute.Text;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    button_label: Attribute.String;
-    button_link: Attribute.String;
-  };
-}
-
 export interface SmallMenuHookahs extends Schema.Component {
   collectionName: 'components_small_menu_hookahs';
   info: {
@@ -83,16 +55,26 @@ export interface SmallMenuHookahs extends Schema.Component {
   };
 }
 
+export interface StatStat extends Schema.Component {
+  collectionName: 'components_stat_stats';
+  info: {
+    displayName: 'Stat';
+  };
+  attributes: {
+    value: Attribute.String;
+    label: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'about.trophies': AboutTrophies;
-      'catering.service': CateringService;
+      'hero.button': HeroButton;
       'instagram.post': InstagramPost;
       'navigation.button': NavigationButton;
       'navigation.menu': NavigationMenu;
-      'promotion.promotion': PromotionPromotion;
       'small-menu.hookahs': SmallMenuHookahs;
+      'stat.stat': StatStat;
     }
   }
 }
