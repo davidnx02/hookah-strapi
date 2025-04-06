@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AchievementAchievement extends Schema.Component {
+  collectionName: 'components_achievement_achievements';
+  info: {
+    displayName: 'achievement';
+  };
+  attributes: {
+    place: Attribute.String;
+    name: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
 export interface HeroButton extends Schema.Component {
   collectionName: 'components_hero_buttons';
   info: {
@@ -69,6 +81,7 @@ export interface StatStat extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'achievement.achievement': AchievementAchievement;
       'hero.button': HeroButton;
       'instagram.post': InstagramPost;
       'navigation.button': NavigationButton;

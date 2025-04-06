@@ -788,6 +788,39 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAchievementAchievement extends Schema.SingleType {
+  collectionName: 'achievements';
+  info: {
+    singularName: 'achievement';
+    pluralName: 'achievements';
+    displayName: 'Achievement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Text;
+    description: Attribute.Text;
+    achievements: Attribute.Component<'achievement.achievement', true>;
+    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::achievement.achievement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::achievement.achievement',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1133,6 +1166,44 @@ export interface ApiStatStat extends Schema.SingleType {
   };
 }
 
+export interface ApiVisitUsVisitUs extends Schema.SingleType {
+  collectionName: 'visit_uses';
+  info: {
+    singularName: 'visit-us';
+    pluralName: 'visit-uses';
+    displayName: 'Visit us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Text;
+    description: Attribute.Text;
+    hours_date_1: Attribute.String;
+    hours_time_1: Attribute.String;
+    hours_date_2: Attribute.String;
+    hours_time_2: Attribute.String;
+    image1: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image2: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    button: Attribute.Component<'hero.button'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::visit-us.visit-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::visit-us.visit-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1151,6 +1222,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::achievement.achievement': ApiAchievementAchievement;
       'api::category.category': ApiCategoryCategory;
       'api::cta-banner.cta-banner': ApiCtaBannerCtaBanner;
       'api::general.general': ApiGeneralGeneral;
@@ -1162,6 +1234,7 @@ declare module '@strapi/types' {
       'api::master.master': ApiMasterMaster;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::stat.stat': ApiStatStat;
+      'api::visit-us.visit-us': ApiVisitUsVisitUs;
     }
   }
 }

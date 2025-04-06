@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "visit_uses",
+  "info": {
+    "singularName": "visit-us",
+    "pluralName": "visit-uses",
+    "displayName": "Visit us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "hours_date_1": {
+      "type": "string"
+    },
+    "hours_time_1": {
+      "type": "string"
+    },
+    "hours_date_2": {
+      "type": "string"
+    },
+    "hours_time_2": {
+      "type": "string"
+    },
+    "image1": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image2": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hero.button"
+    }
+  }
+}
