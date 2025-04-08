@@ -4,7 +4,8 @@
   "info": {
     "singularName": "shisha-page",
     "pluralName": "shisha-pages",
-    "displayName": "Shisha page"
+    "displayName": "Shisha page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,24 +16,26 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "brands": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "offers": {
       "displayName": "Offer",

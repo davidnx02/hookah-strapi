@@ -1150,6 +1150,7 @@ export interface ApiShishaPageShishaPage extends Schema.SingleType {
     singularName: 'shisha-page';
     pluralName: 'shisha-pages';
     displayName: 'Shisha page';
+    description: '';
   };
   options: {
     draftAndPublish: true;

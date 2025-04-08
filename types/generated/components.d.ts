@@ -59,10 +59,12 @@ export interface OffersOffer extends Schema.Component {
   collectionName: 'components_offers_offers';
   info: {
     displayName: 'Offer';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     description: Attribute.Text;
+    price: Attribute.Integer;
   };
 }
 
