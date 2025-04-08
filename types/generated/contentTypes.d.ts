@@ -1144,6 +1144,39 @@ export interface ApiNavigationNavigation extends Schema.SingleType {
   };
 }
 
+export interface ApiShishaPageShishaPage extends Schema.SingleType {
+  collectionName: 'shisha_pages';
+  info: {
+    singularName: 'shisha-page';
+    pluralName: 'shisha-pages';
+    displayName: 'Shisha page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    brands: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    offers: Attribute.Component<'offers.offer', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shisha-page.shisha-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shisha-page.shisha-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiStatStat extends Schema.SingleType {
   collectionName: 'stats';
   info: {
@@ -1233,6 +1266,7 @@ declare module '@strapi/types' {
       'api::lemonade.lemonade': ApiLemonadeLemonade;
       'api::master.master': ApiMasterMaster;
       'api::navigation.navigation': ApiNavigationNavigation;
+      'api::shisha-page.shisha-page': ApiShishaPageShishaPage;
       'api::stat.stat': ApiStatStat;
       'api::visit-us.visit-us': ApiVisitUsVisitUs;
     }

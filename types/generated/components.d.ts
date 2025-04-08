@@ -55,6 +55,17 @@ export interface NavigationMenu extends Schema.Component {
   };
 }
 
+export interface OffersOffer extends Schema.Component {
+  collectionName: 'components_offers_offers';
+  info: {
+    displayName: 'Offer';
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
 export interface SmallMenuHookahs extends Schema.Component {
   collectionName: 'components_small_menu_hookahs';
   info: {
@@ -86,6 +97,7 @@ declare module '@strapi/types' {
       'instagram.post': InstagramPost;
       'navigation.button': NavigationButton;
       'navigation.menu': NavigationMenu;
+      'offers.offer': OffersOffer;
       'small-menu.hookahs': SmallMenuHookahs;
       'stat.stat': StatStat;
     }

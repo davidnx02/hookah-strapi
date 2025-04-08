@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "shisha_pages",
+  "info": {
+    "singularName": "shisha-page",
+    "pluralName": "shisha-pages",
+    "displayName": "Shisha page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "brands": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "offers": {
+      "displayName": "Offer",
+      "type": "component",
+      "repeatable": true,
+      "component": "offers.offer"
+    }
+  }
+}
