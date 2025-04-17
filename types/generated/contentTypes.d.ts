@@ -888,6 +888,38 @@ export interface ApiCtaBannerCtaBanner extends Schema.SingleType {
   };
 }
 
+export interface ApiDrinkPageDrinkPage extends Schema.SingleType {
+  collectionName: 'drink_pages';
+  info: {
+    singularName: 'drink-page';
+    pluralName: 'drink-pages';
+    displayName: 'Drink page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    offers: Attribute.Component<'offers.offer', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::drink-page.drink-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::drink-page.drink-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGeneralGeneral extends Schema.SingleType {
   collectionName: 'generals';
   info: {
@@ -1259,6 +1291,7 @@ declare module '@strapi/types' {
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::category.category': ApiCategoryCategory;
       'api::cta-banner.cta-banner': ApiCtaBannerCtaBanner;
+      'api::drink-page.drink-page': ApiDrinkPageDrinkPage;
       'api::general.general': ApiGeneralGeneral;
       'api::hero.hero': ApiHeroHero;
       'api::info-section.info-section': ApiInfoSectionInfoSection;

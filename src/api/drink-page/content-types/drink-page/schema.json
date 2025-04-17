@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "drink_pages",
+  "info": {
+    "singularName": "drink-page",
+    "pluralName": "drink-pages",
+    "displayName": "Drink page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "offers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "offers.offer"
+    }
+  }
+}
