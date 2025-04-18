@@ -1115,6 +1115,37 @@ export interface ApiItemItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiKontaktPageKontaktPage extends Schema.SingleType {
+  collectionName: 'kontakt_pages';
+  info: {
+    singularName: 'kontakt-page';
+    pluralName: 'kontakt-pages';
+    displayName: 'Kontakt page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Kontakt: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::kontakt-page.kontakt-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::kontakt-page.kontakt-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLemonadeLemonade extends Schema.CollectionType {
   collectionName: 'lemonades';
   info: {
@@ -1334,6 +1365,7 @@ declare module '@strapi/types' {
       'api::info-section.info-section': ApiInfoSectionInfoSection;
       'api::instagram.instagram': ApiInstagramInstagram;
       'api::item.item': ApiItemItem;
+      'api::kontakt-page.kontakt-page': ApiKontaktPageKontaktPage;
       'api::lemonade.lemonade': ApiLemonadeLemonade;
       'api::master.master': ApiMasterMaster;
       'api::navigation.navigation': ApiNavigationNavigation;
