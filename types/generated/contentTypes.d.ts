@@ -990,6 +990,7 @@ export interface ApiInfoSectionInfoSection extends Schema.CollectionType {
     singularName: 'info-section';
     pluralName: 'info-sections';
     displayName: 'InfoSection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1000,7 +1001,9 @@ export interface ApiInfoSectionInfoSection extends Schema.CollectionType {
     button: Attribute.Component<'hero.button'>;
     image1: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     image2: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    page: Attribute.Enumeration<['home', 'menu', 'vodne-fajky', 'kontakt']>;
+    page: Attribute.Enumeration<
+      ['home', 'menu', 'vodne-fajky', 'kontakt', 'drinky']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "info-section",
     "pluralName": "info-sections",
-    "displayName": "InfoSection"
+    "displayName": "InfoSection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,24 +24,26 @@
       "component": "hero.button"
     },
     "image1": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "image2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "page": {
       "type": "enumeration",
@@ -48,7 +51,8 @@
         "home",
         "menu",
         "vodne-fajky",
-        "kontakt"
+        "kontakt",
+        "drinky"
       ]
     }
   }
