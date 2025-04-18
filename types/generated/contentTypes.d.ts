@@ -861,6 +861,7 @@ export interface ApiCoursePageCoursePage extends Schema.SingleType {
     singularName: 'course-page';
     pluralName: 'course-pages';
     displayName: 'Course Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;

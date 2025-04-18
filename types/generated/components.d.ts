@@ -16,13 +16,13 @@ export interface CourseCourse extends Schema.Component {
   collectionName: 'components_course_courses';
   info: {
     displayName: 'Course';
+    description: '';
   };
   attributes: {
     name: Attribute.String;
     price: Attribute.String;
     description: Attribute.Blocks;
-    desktop_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    mobile_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
