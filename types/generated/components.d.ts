@@ -12,6 +12,20 @@ export interface AchievementAchievement extends Schema.Component {
   };
 }
 
+export interface CourseCourse extends Schema.Component {
+  collectionName: 'components_course_courses';
+  info: {
+    displayName: 'Course';
+  };
+  attributes: {
+    name: Attribute.String;
+    price: Attribute.String;
+    description: Attribute.Blocks;
+    desktop_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mobile_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface HeroButton extends Schema.Component {
   collectionName: 'components_hero_buttons';
   info: {
@@ -95,6 +109,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'achievement.achievement': AchievementAchievement;
+      'course.course': CourseCourse;
       'hero.button': HeroButton;
       'instagram.post': InstagramPost;
       'navigation.button': NavigationButton;

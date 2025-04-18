@@ -855,6 +855,38 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCoursePageCoursePage extends Schema.SingleType {
+  collectionName: 'course_pages';
+  info: {
+    singularName: 'course-page';
+    pluralName: 'course-pages';
+    displayName: 'Course Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    courses: Attribute.Component<'course.course', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-page.course-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCtaBannerCtaBanner extends Schema.SingleType {
   collectionName: 'cta_banners';
   info: {
@@ -1002,7 +1034,7 @@ export interface ApiInfoSectionInfoSection extends Schema.CollectionType {
     image1: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     image2: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     page: Attribute.Enumeration<
-      ['home', 'menu', 'vodne-fajky', 'kontakt', 'drinky']
+      ['home', 'menu', 'vodne-fajky', 'kontakt', 'drinky', 'skola-majstra']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1293,6 +1325,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::category.category': ApiCategoryCategory;
+      'api::course-page.course-page': ApiCoursePageCoursePage;
       'api::cta-banner.cta-banner': ApiCtaBannerCtaBanner;
       'api::drink-page.drink-page': ApiDrinkPageDrinkPage;
       'api::general.general': ApiGeneralGeneral;
