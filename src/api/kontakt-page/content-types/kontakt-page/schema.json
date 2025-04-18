@@ -4,25 +4,27 @@
   "info": {
     "singularName": "kontakt-page",
     "pluralName": "kontakt-pages",
-    "displayName": "Kontakt page"
+    "displayName": "Kontakt page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Kontakt": {
+    "name": {
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

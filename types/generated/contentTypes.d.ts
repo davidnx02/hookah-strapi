@@ -1121,12 +1121,13 @@ export interface ApiKontaktPageKontaktPage extends Schema.SingleType {
     singularName: 'kontakt-page';
     pluralName: 'kontakt-pages';
     displayName: 'Kontakt page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Kontakt: Attribute.String;
+    name: Attribute.String;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
